@@ -8,6 +8,8 @@ import (
 
 func initializeRoutes(router *gin.Engine) {
 
+	handler.InitializeHandler()
+
 	//agrupation routes with version
 	v1 := router.Group("/api/v1")
 	{
