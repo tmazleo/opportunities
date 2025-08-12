@@ -1,3 +1,5 @@
+//utilizando o gorm para criar tabelas no banco.
+//gorm.Model necessario para definir os campos
 package schemas
 
 import (

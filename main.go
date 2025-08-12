@@ -1,3 +1,4 @@
+//pacote princippal tendo a função de inicializar as demais
 package main
 
 import (

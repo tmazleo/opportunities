@@ -1,3 +1,4 @@
+//inizializador do router, tambem inicializando a func das routes
 package router
 
 import "github.com/gin-gonic/gin"
