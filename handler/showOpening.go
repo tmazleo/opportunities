@@ -7,6 +7,14 @@ import (
 	"github.com/tmazleo/opportunities/schemas"
 )
 
+// @Summary Mostra uma abertura
+// @Description Retorna detalhes de uma abertura
+// @Tags Opening
+// @Accept json
+// @Produce json
+// @Success 200 {object} handler.Opening
+// @Router /opening [get]
+
 func ShowOpeningHandler(ctx *gin.Context) {
 	id := ctx.Query("id")
 	if  id == "" {
