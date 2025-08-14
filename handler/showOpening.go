@@ -7,22 +7,26 @@ import (
 	"github.com/tmazleo/opportunities/schemas"
 )
 
-// @Summary Mostra uma abertura
-// @Description Retorna detalhes de uma abertura
-// @Tags Opening
+// @BasePath /api/v1
+
+// @Summary Show opening
+// @Description Show a job opening
+// @Tags Openings
 // @Accept json
 // @Produce json
-// @Success 200 {object} handler.Opening
+// @Param id query string true "Opening identification"
+// @Success 200 {object} ShowOpeningResponse
+// @Failure 400 {object} ErrorResponse
+// @Failure 404 {object} ErrorResponse
 // @Router /opening [get]
-
 func ShowOpeningHandler(ctx *gin.Context) {
 	id := ctx.Query("id")
-	if  id == "" {
+	if id == "" {
 		sendError(ctx, http.StatusBadRequest, errParamIsRequired("id", "queryParameter").Error())
 		return
 	}
 	opening := schemas.Opening{}
-	if err := db.First(&opening, id).Error;err != nil {
+	if err := db.First(&opening, id).Error; err != nil {
 		sendError(ctx, http.StatusNotFound, "opening not found")
 		return
 	}
